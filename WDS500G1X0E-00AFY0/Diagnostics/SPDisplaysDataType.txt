@@ -1,0 +1,33 @@
+Graphics/Displays:
+
+    Intel UHD Graphics 630:
+
+      Chipset Model: Intel UHD Graphics 630
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x3e9b
+      Revision ID: 0x0000
+      Metal Support: Metal 3
+      Displays:
+        LM156LF9L01:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60.00Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Mirror: Off
+          Online: Yes
+          Automatically Adjust Brightness: Yes
+          Connection Type: Internal
+        24V1W:
+          Resolution: 2880 x 1620
+          UI Looks like: 1440 x 810 @ 60.00Hz
+          Framebuffer Depth: 30-Bit Color (ARGB2101010)
+          Display Serial Number: 28118
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Connection Type: DVI or HDMI
+          Adapter Firmware Version: 2.55
+

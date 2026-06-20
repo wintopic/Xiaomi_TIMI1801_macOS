@@ -1,0 +1,63 @@
+8-  |   "subsystem-vendor-id" = <721d0000>
+9-  |   "IOPCIExpressLinkCapabilities" = 0
+10:  |   "hda-gfx" = <"onboard-1">
+11-  |   "IOName" = "pci8086,a348"
+12-  |   "AFGLowPowerState" = <03000000>
+13-  |   "IOPCIUseDeviceMapper" = Yes
+14-  |   "pcidebug" = "0:31:3"
+15:  |   "layout-id" = <07000000>
+16-  |   "IOServiceDEXTEntitlements" = (("com.apple.developer.driverkit.transport.pci"))
+17-  |   "IOInterruptControllers" = ("io-apic-0","IOPCIMessagedInterruptController")
+--
+19-  |   "IOBusyInterest" = "IOCommand is not serializable"
+20-  |   "IOPowerManagement" = {"ChildrenPowerState"=2,"CurrentPowerState"=2,"CapabilityFlags"=258,"ChildProxyPowerState"=2,"MaxPowerState"=3}
+21:  |   "alc-layout-id" = <62000000>
+22-  |   "IOPCIResourced" = Yes
+23:  |   "PinConfigurations" = <3011a6902010210000000040f0111141f01111414010a1036000810010011790f01111410100a040f0111141>
+24-  |   "name" = <"pci8086,a348">
+25-  |   "subsystem-id" = <01180000>
+--
+52-    |   "IOProbeScore" = 1
+53-    |   "IOPCIUseDeviceMapper" = Yes
+54:    |   "CodecList" = ({"RevisionID"=1048579,"VendorProductID"=283906592})
+55-    |   "CFBundleIdentifierKernel" = "com.apple.driver.AppleHDAController"
+56-    |   "IOMatchCategory" = "IODefaultMatchCategory"
+--
+59-    |   "DPAudioDeviceExclusion" = ({"ManufacturerID"=1552,"ProductID"=10130})
+60-    |   "OutputLowPower" = Yes
+61:    |   "CodecAddressFilterArray" = ({"CodecAddressMask"=<01000000>,"PCIVendorDeviceID"=282987200,"LayoutID"=16392},{"CodecAddressMask"=<01000000>,"PCIVendorDeviceID"=282987200,"LayoutID"=0},{"CodecAddressMask"=<09000000>,"PCIVendorDeviceID"=282987200,"LayoutID"=65},{"CodecAddressMask"=<01000000>,"PCIVendorDeviceID"=282987200,"LayoutID"=73})
+62:    |   "HwFactoryPrefixTranslation" = ({"LayoutID"=78,"SourceDID"=43584,"StandInDID"=43568,"VID"=4098},{"LayoutID"=78,"SourceDID"=43576,"StandInDID"=43568,"VID"=4098},{"LayoutID"=79,"SourceDID"=43584,"StandInDID"=43568,"VID"=4098},{"LayoutID"=79,"SourceDID"=43576,"StandInDID"=43568,"VID"=4098})
+63-    |   "IOPCIClassMatch" = "0x04010000&0xFFFD0000"
+64-    | }
+65-    | 
+66:    +-o IOHDACodecDevice@1F,3,0  <class IOHDACodecDevice, id 0x1000004f2, registered, matched, active, busy 0 (261 ms), retain 7>
+67-      | {
+68:      |   "IOHDACodecVendorID" = 283906592
+69-      |   "IOHDACodecRevisionID" = 1048579
+70:      |   "IOHDACodecAddress" = 0
+71-      | }
+72-      | 
+--
+75-        |   "IOProbeScore" = 0
+76-        |   "CFBundleIdentifier" = "com.apple.iokit.IOHDAFamily"
+77:        |   "IOProviderClass" = "IOHDACodecDevice"
+78-        |   "IOClass" = "IOHDACodecDriver"
+79-        |   "IOPersonalityPublisher" = "com.apple.iokit.IOHDAFamily"
+--
+100-            |   "IOHDACodecFunctionGroupType" = 1
+101-            |   "IOPersonalityPublisher" = "com.apple.driver.AppleHDA"
+102:            |   "HDAConfigDefault" = ({"AFGLowPowerState"=<03000000>,"CodecID"=283906592,"ConfigData"=<01470c0201970c02>,"FuncGroup"=1,"CodecName"="Custom ALC1220 for Mi Gaming Notebook Creator by Xsixu","BootConfigData"=<01a71c1001a71d0101a71e1701a71f9001471c2001471d1001471e2101471f0001470c0201271c3001271d1101271ea601271f9001971c6001971d0001971e8101971f0001970c02>,"WakeVerbReinit"=Yes,"LayoutID"=7})
+103-            |   "CFBundleIdentifierKernel" = "com.apple.driver.AppleHDA"
+104-            | }
+--
+118-              |   "IOAudioDeviceTransportType" = 1651274862
+119-              |   "IOProbeScore" = 0
+120:              |   "SystemSpecificSampleOffsetPad" = ({"SampleOffsetPad"=260,"LayoutID"=8})
+121-              |   "IOAudioPowerState" = 2
+122-              |   "CFBundleIdentifierKernel" = "com.apple.driver.AppleHDA"
+--
+137-              | |   "IOAudioEngineCoreAudioPlugIn" = "AppleHDA.kext/Contents/PlugIns/AppleHDAHALPlugIn.bundle"
+138-              | |   "IOAudioEngineInputSampleOffset" = 57
+139:              | |   "IOAudioEngineDeviceDescription" = {"num-internal-mics"=1,"driver digital input gain"=0,"layout-id"=7,"post-processing input gain"=25,"VP-pregain"=25}
+140-              | |   "IOGeneralInterest" = "IOCommand is not serializable"
+141-              | |   "IOAudioEngineState" = 0

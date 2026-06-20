@@ -1,0 +1,2 @@
+csr-active-config	%03%0a%00%00
+boot-args	-v debug=0x100 keepsyms=1 -igfxblt igfxonln=1 -igfxtypec -igfxlspcon igfxonlnfbs=2 igfxfcms=1 igfxfcmsfbs=2 igfxagdc=0

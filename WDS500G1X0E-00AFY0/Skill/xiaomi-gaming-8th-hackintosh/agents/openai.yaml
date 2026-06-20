@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xiaomi Gaming 8th Hackintosh"
+  short_description: "Install and maintain this Xiaomi Hackintosh"
+  default_prompt: "Use $xiaomi-gaming-8th-hackintosh to install or repair the Xiaomi Gaming Laptop 8th-gen Hackintosh EFI."
