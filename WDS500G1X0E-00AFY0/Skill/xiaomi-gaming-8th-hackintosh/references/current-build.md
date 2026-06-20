@@ -2,7 +2,8 @@
 
 ## Table Of Contents
 
-- Safety and backup map
+- Backup and restore map
+- Pitfall checklist
 - Machine profile
 - Current stable EFI
 - ACPI, drivers, and kexts
@@ -10,13 +11,12 @@
 - External display clarity
 - Audio
 - Networking, Bluetooth, USB, input, and storage
-- Known bad paths
-- Safe restore and backup procedure
+- Known limitations and recommendations
+- Restore and backup procedure
 - Validation checklist
 
-## Safety And Backup Map
+## Backup And Restore Map
 
-- Do not touch the Samsung/Windows disk. In recent sessions it appeared as `/Volumes/Windows` and as an NTFS disk; disk numbers change across boots.
 - The current macOS system disk is the WD NVMe media `WDS500G1X0E-00AFY0`. Its EFI is the first partition of the current whole disk, but the identifier may be `disk0s1` or `disk1s1` depending on boot order.
 - The U disk is `XIAOMI`, usually mounted at `/Volumes/XIAOMI`.
 - The latest stable backup is `/Volumes/XIAOMI/备份/当前可用配置-20260621-063410`.
@@ -32,6 +32,18 @@ diskutil info /dev/<whole disk>
 ```
 
 Only proceed if the whole disk media name is `WDS500G1X0E-00AFY0`.
+
+## Pitfall Checklist
+
+- Disk identifiers are not stable. Always derive the APFS physical store and whole disk from `diskutil info /` before mounting or writing EFI.
+- If the intended target is the captured working build, the whole disk media name should be `WDS500G1X0E-00AFY0`. If it differs, ask the user to confirm the target instead of guessing.
+- Keep a known-good boot path available. Back up the target EFI before replacing it, and keep the stable U-disk EFI unchanged until the edited EFI has survived a reboot.
+- The published config intentionally contains placeholder SMBIOS and Wi-Fi values. Generate fresh local values before first boot and do not publish private identifiers or network credentials.
+- For ALC1220 layout 98, write both `layout-id` and `alc-layout-id` as Data `<62000000>` / base64 `YgAAAA==`. Integer values or ASCII Data can make audio disappear.
+- For the verified Type-C external display route, preserve `framebuffer-con2` and `AAPL02,override-no-connect`. Older `AAPL01` EDID injection is not part of the current stable setup.
+- BetterDisplay is part of the clear external-display setup. Removing it will likely make the AOC 1080p panel fall back to blurrier native scaling.
+- Do not use DDC/DDC-CI control through the UGREEN Type-C-to-HDMI adapter unless the user explicitly accepts the freeze risk and has a recovery path.
+- HDMI/DP display-audio output is a known limitation in this build. Internal/headphone audio working through ALC1220 layout 98 is the current stable audio target.
 
 ## Machine Profile
 
@@ -50,7 +62,7 @@ Only proceed if the whole disk media name is `WDS500G1X0E-00AFY0`.
 - Audio codec: Realtek ALC1220 `10ec:1220`.
 - Display audio codec seen intermittently: Intel Display Audio `8086:280b`.
 
-Do not copy real serial numbers, MLB, ROM, UUID, or provisioning IDs from this machine into public docs or another installation. Generate fresh SMBIOS identifiers for a reinstall.
+The published `config.plist` uses placeholder SMBIOS values. Generate fresh SMBIOS identifiers for a reinstall.
 
 ## Current Stable EFI
 
@@ -298,17 +310,16 @@ Input:
 - PS/2 keyboard and mouse plugins are enabled.
 - I2C stack is present but disabled in config.
 
-## Known Bad Paths
+## Known Limitations And Recommendations
 
-- Do not touch Samsung/Windows disk.
-- Do not run DDC/DDC-CI tests unless the user explicitly accepts freeze risk.
-- Do not replace the working con2 mapping with generic connector guesses.
-- Do not remove BetterDisplay if the user cares about external monitor text clarity.
-- Do not use ALC1220 layout 7 as the final audio layout; it was not audible.
-- Do not write plist Data with PlistBuddy's `data` argument unless verified; use `plutil -data` or a structured plist library.
-- Do not inject `AAPL01,override-no-connect`; current stable display uses only `AAPL02`.
+- DDC/DDC-CI over the Type-C-to-HDMI adapter is not part of the recommended setup; it previously froze the system during testing.
+- Keep the working IGPU con2 mapping for the verified Type-C display route.
+- Keep BetterDisplay installed for the clearest external-monitor text rendering.
+- Use ALC1220 layout 98; layout 7 enumerated devices but produced no audible output.
+- Write plist Data with `plutil -data` or a structured plist library. `PlistBuddy` can accidentally write ASCII bytes for Data values.
+- Use only `AAPL02,override-no-connect` for the AOC EDID override.
 
-## Safe Restore And Backup Procedure
+## Restore And Backup Procedure
 
 For restore from U disk backup to current WD system EFI:
 
