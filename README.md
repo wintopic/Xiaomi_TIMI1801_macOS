@@ -9,6 +9,7 @@
 ```text
 .
 ├── README.md
+├── AI通用调试SKILL/             # 小米游戏本八代通用 AI 调试 Skill
 └── WDS500G1X0E-00AFY0/
     ├── EFI/                         # OpenCore EFI
     ├── config.plist                  # 独立配置副本
@@ -20,6 +21,10 @@
 当前配置按来源系统盘型号分目录保存：
 
 - [WDS500G1X0E-00AFY0](./WDS500G1X0E-00AFY0)
+
+小米游戏本八代通用 AI 调试 Skill：
+
+- [AI通用调试SKILL/xiaomi-gaming-8th-auto-debug](./AI通用调试SKILL/xiaomi-gaming-8th-auto-debug)
 
 ## 已验证硬件
 
@@ -66,3 +71,7 @@
 完整安装流程、BIOS 建议、关键显示配置、音频配置、验证命令和已知问题见：
 
 [WDS500G1X0E-00AFY0/README.md](./WDS500G1X0E-00AFY0/README.md)
+
+如果需要把这款小米游戏本八代的 EFI 迁移到其他固态、其他网卡/显示器/转接器，或让 AI 按实际硬件自动排查，请使用：
+
+[AI通用调试SKILL/xiaomi-gaming-8th-auto-debug/SKILL.md](./AI通用调试SKILL/xiaomi-gaming-8th-auto-debug/SKILL.md)

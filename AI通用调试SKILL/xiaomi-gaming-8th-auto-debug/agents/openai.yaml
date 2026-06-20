@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xiaomi Gaming 8th Auto Debug"
+  short_description: "小米游戏本八代 OpenCore EFI 自动调试与迁移流程"
+  default_prompt: "Use $xiaomi-gaming-8th-auto-debug to diagnose and safely adapt the Xiaomi Gaming Laptop 8th-gen OpenCore EFI for this hardware."

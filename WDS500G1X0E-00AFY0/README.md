@@ -361,6 +361,12 @@ Use $xiaomi-gaming-8th-hackintosh to install or repair the Xiaomi Gaming Laptop 
 
 Skill 中记录了当前配置细节、恢复流程、验证命令和已知调试结论。
 
+如果要把这款小米游戏本八代迁移到其他固态、其他网卡、其他外接显示器或不同硬件组合，请优先使用仓库根目录的通用 Skill：
+
+```text
+AI通用调试SKILL/xiaomi-gaming-8th-auto-debug/
+```
+
 ## 致谢
 
 本项目基于 OpenCore 及多个社区驱动项目。相关二进制文件版权与许可证归各自上游项目所有。
